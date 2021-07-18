@@ -1,0 +1,4 @@
+DELETE FROM letters;
+DELETE from persons;
+ALTER TABLE letters AUTO_INCREMENT = 1;
+ALTER TABLE persons AUTO_INCREMENT = 1;

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="orangery">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="flower" maxOccurs="100">
+          <xs:complexType>
+            <xs:sequence>
+            <xs:element name="name" type="xs:string"/>
+              <xs:element name="soil">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:enumeration value="подзолистая"/>
+                    <xs:enumeration value="грунтовая"/>
+                    <xs:enumeration value="дерново-подзолистая"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="origin" type="xs:string"/>
+              <xs:element name="visualParameters">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="stemColor" type="xs:string"/>
+                    <xs:element name="leafColor" type="xs:string"/>
+                    <xs:element name="averageSize" type="xs:decimal"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="growingTips">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="temperature">
+                      <xs:simpleType>
+                        <xs:restriction base="xs:decimal">
+                          <xs:minInclusive value="0.0"/>
+                          <xs:maxInclusive value="60.0"/>
+                        </xs:restriction>
+                      </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="light-loving">
+                      <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                          <xs:enumeration value="да"/>
+                          <xs:enumeration value="нет"/>
+                        </xs:restriction>
+                      </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="watering">
+                      <xs:simpleType>
+                        <xs:restriction base="xs:decimal">
+                          <xs:minInclusive value="0"/>
+                          <xs:maxInclusive value="20000"/>
+                        </xs:restriction>
+                      </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="multiplying">
+                      <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                          <xs:enumeration value="листьями"/>
+                          <xs:enumeration value="черенками"/>
+                          <xs:enumeration value="семенами"/>
+                        </xs:restriction>
+                      </xs:simpleType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

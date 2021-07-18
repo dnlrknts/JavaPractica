@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<orangery>
+    <flower>
+        <name>Цветок 1</name>
+        <soil>подзолистая</soil>
+        <origin>Беларусь</origin>
+        <visualParameters>
+            <stemColor>зелёный</stemColor>
+            <leafColor>зелёный</leafColor>
+            <averageSize>123.45</averageSize>
+        </visualParameters>
+        <growingTips>
+            <temperature>20</temperature>
+            <light-loving>да</light-loving>
+            <watering>123.45</watering>
+            <multiplying>листьями</multiplying>
+        </growingTips>
+    </flower>
+    <flower>
+        <name>Цветок 2</name>
+        <soil>грунтовая</soil>
+        <origin>Беларусь</origin>
+        <visualParameters>
+            <stemColor>коричневый</stemColor>
+            <leafColor>жёлтый</leafColor>
+            <averageSize>20</averageSize>
+        </visualParameters>
+        <growingTips>
+            <temperature>30</temperature>
+            <light-loving>да</light-loving>
+            <watering>50</watering>
+            <multiplying>черенками</multiplying>
+        </growingTips>
+    </flower>
+    <flower>
+        <name>Цветок 3</name>
+        <soil>дерново-подзолистая</soil>
+        <origin>Беларусь</origin>
+        <visualParameters>
+            <stemColor>крысный</stemColor>
+            <leafColor>синий</leafColor>
+            <averageSize>80</averageSize>
+        </visualParameters>
+        <growingTips>
+            <temperature>15</temperature>
+            <light-loving>нет</light-loving>
+            <watering>123.45</watering>
+            <multiplying>семенами</multiplying>
+        </growingTips>
+    </flower>
+</orangery>

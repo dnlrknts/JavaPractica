@@ -1,0 +1,1 @@
+SELECT persons.Id,Name,Surname,Patronymic,Date_of_birth FROM persons INNER JOIN letters l on persons.Id = l.RecipientId WHERE topic='чистят'

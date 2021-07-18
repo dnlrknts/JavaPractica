@@ -1,0 +1,254 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      8910,        246]
+NotebookOptionsPosition[      7837,        222]
+NotebookOutlinePosition[      8265,        239]
+CellTagsIndexPosition[      8222,        236]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"names", "=", 
+   RowBox[{
+    RowBox[{"Select", "[", 
+     RowBox[{
+      RowBox[{"EntityValue", "[", 
+       RowBox[{
+        RowBox[{"EntityValue", "[", 
+         RowBox[{"#", ",", "\"\<Entities\>\""}], "]"}], ",", "\"\<Name\>\""}],
+        "]"}], ",", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"Length", "[", "#", "]"}], "<", "30"}], ")"}], "&&", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"StringCount", "[", 
+           RowBox[{"#", ",", "\"\<'\>\""}], "]"}], "==", "0"}], ")"}]}], 
+       "&"}]}], "]"}], "&"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+  "psql", "=", 
+   "\"\<INSERT INTO Persons(Name,Surname,Patronymic,Date_of_birth) \
+VALUES\>\""}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+  "lsql", "=", 
+   "\"\<INSERT INTO letters(senderid, recipientid, topic, content, \
+departure_date) values\>\""}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"person", "=", 
+   RowBox[{
+    RowBox[{"StringRiffle", "[", 
+     RowBox[{"#", ",", 
+      RowBox[{"{", 
+       RowBox[{"psql", ",", "\"\<,\\n\>\"", ",", "\"\<;\>\""}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\"\<('\>\"", ",", "\"\<' , '\>\"", ",", "\"\<')\>\""}], 
+       "}"}]}], "]"}], "&"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"letter", "=", 
+   RowBox[{
+    RowBox[{"StringRiffle", "[", 
+     RowBox[{"#", ",", 
+      RowBox[{"{", 
+       RowBox[{"lsql", ",", "\"\<,\\n\>\"", ",", "\"\<;\>\""}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\"\<('\>\"", ",", "\"\<' , '\>\"", ",", "\"\<')\>\""}], 
+       "}"}]}], "]"}], "&"}]}], ";"}]}], "Input",
+ CellChangeTimes->{
+  3.83552884242636*^9, {3.835529188723729*^9, 3.8355292021408668`*^9}, {
+   3.8355296259587193`*^9, 3.8355296430009656`*^9}, {3.8355300651341004`*^9, 
+   3.835530071953861*^9}, 3.8355301181629148`*^9, {3.835530228047269*^9, 
+   3.835530249884062*^9}, {3.8355314394447236`*^9, 3.8355314720692515`*^9}, {
+   3.835531947319951*^9, 3.8355319694422145`*^9}, {3.83553781468538*^9, 
+   3.835537826129202*^9}, {3.8355380510166855`*^9, 3.8355380535957623`*^9}, {
+   3.8355380835989532`*^9, 3.8355380875197134`*^9}},
+ CellLabel->
+  "In[126]:=",ExpressionUUID->"14275f32-78bc-42fd-a88c-979a84328c06"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"id", "=", 
+   RowBox[{"Range", "[", 
+    RowBox[{"1", ",", "1000"}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.835532027924162*^9, 3.835532048662622*^9}, {
+  3.8355329865123463`*^9, 3.835532987195075*^9}},
+ CellLabel->
+  "In[112]:=",ExpressionUUID->"c0024e87-f927-47ca-9315-4bec7f552643"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"number", "=", "1000"}], ";"}]], "Input",
+ CellChangeTimes->{{3.8355293086777153`*^9, 3.8355293166406174`*^9}, {
+  3.8355297743231583`*^9, 3.835529774604219*^9}},
+ CellLabel->"In[79]:=",ExpressionUUID->"639f3f9c-e288-493a-aef8-8dfc4abd0d0e"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"n", "=", 
+   RowBox[{"names", "@", "\"\<GivenName\>\""}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"sn", "=", 
+   RowBox[{"names", "@", "\"\<Surname\>\""}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"dates", "=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"MapThread", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"DateString", "[", 
+         RowBox[{
+          RowBox[{"DateObject", "[", 
+           RowBox[{"{", 
+            RowBox[{"#1", ",", "#2", ",", "#3"}], "}"}], "]"}], ",", 
+          "\"\<ISODate\>\""}], "]"}], "&"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"RandomInteger", "[", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"1940", ",", "2021"}], "}"}], ",", "#"}], "]"}], ",", 
+         RowBox[{"RandomInteger", "[", 
+          RowBox[{"12", ",", "#"}], "]"}], ",", 
+         RowBox[{"RandomInteger", "[", 
+          RowBox[{"28", ",", "#"}], "]"}]}], "}"}]}], "]"}], "&"}], "@", 
+    "20000"}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.835527181506694*^9, 3.8355272042672677`*^9}, {
+   3.8355288251772785`*^9, 3.8355288728440456`*^9}, {3.835528926821247*^9, 
+   3.835528949914313*^9}, 3.835529525653635*^9, {3.8355325758323708`*^9, 
+   3.8355325947932673`*^9}, {3.8355328257821193`*^9, 
+   3.835532841846117*^9}},ExpressionUUID->"80a2fa48-3878-46bd-be90-\
+296786d2de33"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"text", "=", 
+   RowBox[{"Select", "[", 
+    RowBox[{
+     RowBox[{"StringRiffle", "/@", 
+      RowBox[{"RandomChoice", "[", 
+       RowBox[{
+        RowBox[{"RandomWord", "[", "5000", "]"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"20000", ",", "30"}], "}"}]}], "]"}]}], ",", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"StringLength", "[", "#", "]"}], "<", "300"}], "&"}]}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"title", "=", 
+   RowBox[{"Select", "[", 
+    RowBox[{
+     RowBox[{"RandomWord", "[", "100", "]"}], ",", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"StringLength", "[", "#", "]"}], "<", "50"}], "&"}]}], "]"}]}],
+   ";"}]}], "Input",
+ CellChangeTimes->{{3.8355328980384994`*^9, 3.835532898176392*^9}},
+ CellLabel->
+  "In[106]:=",ExpressionUUID->"9563eb1f-2b34-48c0-8a3f-19c9a6343a9f"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Export", "[", 
+  RowBox[{"\"\<1.txt\>\"", ",", 
+   RowBox[{"person", "[", 
+    RowBox[{"Transpose", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"RandomChoice", "[", 
+        RowBox[{"#", ",", "number"}], "]"}], "&"}], "/@", 
+      RowBox[{"{", 
+       RowBox[{"n", ",", "sn", ",", "sn", ",", "dates"}], "}"}]}], "]"}], 
+    "]"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.835529325197894*^9, 3.835529472008569*^9}, {
+  3.835529648796632*^9, 3.835529726151701*^9}, {3.8355320632097445`*^9, 
+  3.835532095389553*^9}, {3.8355321359990764`*^9, 3.835532142152935*^9}},
+ CellLabel->
+  "In[131]:=",ExpressionUUID->"3ea13735-3ea0-49c8-9d99-2ed5039a2236"],
+
+Cell[BoxData["\<\"1.txt\"\>"], "Output",
+ CellChangeTimes->{
+  3.8355295933677454`*^9, 3.83552965271353*^9, 3.83552968340014*^9, {
+   3.835529721847224*^9, 3.8355297269660053`*^9}, 3.8355297786592855`*^9, 
+   3.8355300805133524`*^9, 3.8355301246232853`*^9, 3.8355303236053934`*^9, {
+   3.835538035009556*^9, 3.835538061934107*^9}, 3.8355380937557592`*^9},
+ CellLabel->
+  "Out[131]=",ExpressionUUID->"1ccb9e26-b578-4061-b47e-ee9695cb2868"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"SystemOpen", "[", 
+  RowBox[{"Export", "[", 
+   RowBox[{"\"\<1.txt\>\"", ",", 
+    RowBox[{"StringReplace", "[", 
+     RowBox[{
+      RowBox[{"letter", "[", 
+       RowBox[{"Transpose", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"RandomChoice", "[", 
+           RowBox[{"#", ",", "number"}], "]"}], "&"}], "/@", 
+         RowBox[{"{", 
+          RowBox[{"id", ",", "id", ",", "title", ",", "text", ",", "dates"}], 
+          "}"}]}], "]"}], "]"}], ",", 
+      RowBox[{
+       RowBox[{"\"\<'\>\"", "~~", 
+        RowBox[{"a", ":", 
+         RowBox[{"DigitCharacter", ".."}]}], "~~", "\"\<'\>\""}], 
+       "\[RuleDelayed]", "a"}]}], "]"}]}], "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.8355320183549004`*^9, 3.835532019620885*^9}, {
+  3.8355321058816476`*^9, 3.835532157771449*^9}, {3.835532390892807*^9, 
+  3.835532411617352*^9}},
+ CellLabel->
+  "In[113]:=",ExpressionUUID->"eab23e4e-28d8-4672-9cbc-a832ef31b424"]
+},
+WindowSize->{1920, 995},
+WindowMargins->{{-8, Automatic}, {Automatic, -8}},
+Magnification:>1.1 Inherited,
+FrontEndVersion->"12.3 for Microsoft Windows (64-bit) (May 11, 2021)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"ede171d4-7658-4758-a400-c9a1daf2243c"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 2285, 60, 441, "Input",ExpressionUUID->"14275f32-78bc-42fd-a88c-979a84328c06"],
+Cell[2846, 82, 329, 8, 123, "Input",ExpressionUUID->"c0024e87-f927-47ca-9315-4bec7f552643"],
+Cell[3178, 92, 275, 5, 90, "Input",ExpressionUUID->"639f3f9c-e288-493a-aef8-8dfc4abd0d0e"],
+Cell[3456, 99, 1393, 37, 300, "Input",ExpressionUUID->"80a2fa48-3878-46bd-be90-296786d2de33"],
+Cell[4852, 138, 869, 26, 201, "Input",ExpressionUUID->"9563eb1f-2b34-48c0-8a3f-19c9a6343a9f"],
+Cell[CellGroupData[{
+Cell[5746, 168, 676, 16, 123, "Input",ExpressionUUID->"3ea13735-3ea0-49c8-9d99-2ed5039a2236"],
+Cell[6425, 186, 438, 7, 98, "Output",ExpressionUUID->"1ccb9e26-b578-4061-b47e-ee9695cb2868"]
+}, Open  ]],
+Cell[6878, 196, 955, 24, 279, "Input",ExpressionUUID->"eab23e4e-28d8-4672-9cbc-a832ef31b424"]
+}
+]
+*)
+

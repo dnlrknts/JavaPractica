@@ -1,0 +1,1 @@
+SELECT * From persons Where id = (SELECT senderid FROM letters GROUP BY senderid ORDER BY sum(LENGTH(content)) limit 1)
