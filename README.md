@@ -11,8 +11,8 @@
 5. Задание из варианта А , главы 15 «XML»
 
 # Выполненные задания
-1. Гугл-таблица(GoogleTest)
-2. Глава 11:вариант А(z11_v1),вариант B(lab10_b)
-3. Глава 12:вариант А(z12_v3)
-4. Глава 13:вариант А(z13_v4)
-5. Глава 15:вариант А(z15_v1)
+1. Гугл-таблица([GoogleTest](https://github.com/dnlrknts/JavaPractica/tree/main/GoogleTest))
+2. Глава 11:вариант А([z11_v1](https://github.com/dnlrknts/JavaPractica/tree/main/z11_v1)),вариант B([z11_v10](https://github.com/dnlrknts/JavaPractica/tree/main/z11_v10))
+3. Глава 12:вариант А([z12_v3](https://github.com/dnlrknts/JavaPractica/tree/main/z12_v3))
+4. Глава 13:вариант А([z13_v4](https://github.com/dnlrknts/JavaPractica/tree/main/z13_v4))
+5. Глава 15:вариант А([z15_v1](https://github.com/dnlrknts/JavaPractica/tree/main/z15_v1))
